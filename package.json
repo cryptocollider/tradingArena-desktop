@@ -1,0 +1,38 @@
+{
+  "name": "CryptoCollider",
+  "version": "1.6.0",
+  "uuid": "Crypto_Collider_1.6-9045",
+  "description": "Crypto Collider Desktop App Full 1.6dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "isAlive",
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --asar=false --arch=x64 --icon=assets/icons/mac/icon.icns --prune=true --out=release-builds",
+    "package-win": "electron-packager . CryptoCollider --overwrite --asar=false --platform=win32 --arch=x64 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=Crypto Collider --version-string.FileDescription=CryptoCollider --version-string.ProductName=\"Crypto Collider\"",
+	"package-win32": "electron-packager . CryptoCollider --overwrite --asar=false --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CryptoCollider --version-string.FileDescription=CryptoCollider --version-string.ProductName=\"CryptoCollider\"",
+   
+    "package-linux": "electron-packager . CryptoCollider --overwrite --asar=false --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
+    "create-installer-mac": "electron-installer-dmg ./release-builds/Electron\\ tutorial\\ app-darwin-x64/Electron\\ tutorial\\ app.app electron-tutorial-app --out=release-builds --overwrite --icon=assets/icons/mac/icon.icns",
+    "create-installer-win": "node installers/windows/createInstaller.js",
+	"create-debian-installer": "electron-installer-debian --src release-builds/CryptoCollider-1.6beta-linux-x64/ --arch amd64 --config debian.json"
+  },
+  "author": "CryptoCollider",
+  "license": "",
+  "devDependencies": {
+    "electron": "4.1.2",
+    "electron-packager": "^13.1.1",
+    "electron-winstaller": "^3.0.4",
+    "electron-wix-msi": "^2.1.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^4.0.6"
+  },
+	
+	"build": {
+	  "appId": "cryptocollider.16",
+	  "mac": {
+		"category": "cryptocollider.complete"
+	  }
+	}	
+}
